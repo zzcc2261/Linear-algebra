@@ -1,4 +1,4 @@
-from ._global import EPSILON
+from ._global import is_zero
 import math
 
 class Vector:
@@ -85,6 +85,6 @@ class Vector:
     
     def normalize(self):
         """ 返回向量的单位向量 """
-        if self.norm() < EPSILON: # 判断近似度
+        if is_zero(self.norm()): # 判断近似度
             raise ZeroDivisionError("Normalize error !!! norm is zero.")
         return  Vector(self / self.norm())
